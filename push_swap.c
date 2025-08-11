@@ -6,13 +6,18 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:35:32 by ebichan           #+#    #+#             */
-/*   Updated: 2025/02/25 14:42:28 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/11 19:16:21 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int push_swap()
+void organize_astack()
 {
     
 }
+
+int push_swap()
+{
+}
+

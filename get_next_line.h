@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 07:14:19 by yebi              #+#    #+#             */
-/*   Updated: 2025/08/11 19:15:07 by ebichan          ###   ########.fr       */
+/*   Created: 2025/08/11 19:02:55 by ebichan           #+#    #+#             */
+/*   Updated: 2025/08/11 19:13:23 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include "ft_printf.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-typedef struct s_list
-{
-	int				value;
-	struct	s_list	*next;
-}	t_list;
+# include <limits.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-typedef	struct	s_stack
-{
-	t_list	*top;
-	int		size;
-}	t_stack;
-
-int	ft_atoi(const char *nptr);
-int	ft_putchar(char c);
-int	ft_printf(char const *format);
+char	*get_next_line(int fd);
+void	ft_bzero(void *s, size_t n);
+ssize_t	ft_strlen(char *s);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(char *s, int c);
 
 #endif

@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   err_hand.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 07:14:19 by yebi              #+#    #+#             */
-/*   Updated: 2025/08/11 19:15:07 by ebichan          ###   ########.fr       */
+/*   Created: 2025/08/11 16:01:21 by ebichan           #+#    #+#             */
+/*   Updated: 2025/08/11 16:09:18 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "ft_printf.h"
-
-typedef struct s_list
+void print_error()
 {
-	int				value;
-	struct	s_list	*next;
-}	t_list;
-
-typedef	struct	s_stack
-{
-	t_list	*top;
-	int		size;
-}	t_stack;
-
-int	ft_atoi(const char *nptr);
-int	ft_putchar(char c);
-int	ft_printf(char const *format);
-
-#endif
+    ft_printf("Error\n");
+}

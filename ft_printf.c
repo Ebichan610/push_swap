@@ -3,41 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:00:30 by yebi              #+#    #+#             */
-/*   Updated: 2025/02/19 19:07:59 by yebi             ###   ########.fr       */
+/*   Updated: 2025/08/11 19:14:41 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "push_swap.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_putchar(char c)
 {
-	va_list	ap;
+	ssize_t	count;
+
+	count = 0;
+	count = write(1, &c, 1);
+	return ((int)count);
+}
+
+int	ft_printf(const char *format)
+{
 	int		count;
 	int		tmp;
 
 	count = 0;
 	tmp = 0;
-	va_start(ap, format);
 	if (format == NULL)
 		return (-1);
 	while (*format)
 	{
-		if (*format == '%')
-		{
-			tmp = check_specifier(ap, format);
-			format++;
-		}
-		else
-			tmp = ft_putchar(*format);
+		tmp = ft_putchar(*format);
 		if (tmp == -1)
 			return (-1);
 		count += tmp;
 		format++;
 	}
-	va_end(ap);
 	return (count);
 }
 
