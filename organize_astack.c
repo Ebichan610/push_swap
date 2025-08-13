@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   organize_astack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:35:32 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/13 21:12:43 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/13 21:29:53 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,26 @@ static void push_num(t_stack *stack, int num)
     stack->size++;
 }
 
-static int check_num(char* str)
+static int check_num(char** strs)
 {
     int i;
     i = 0;
-    if(str[i]== '-' || (str[i] >= '0' && str[i] <= '9'))
+    while(strs[i] != NULL)
     {
-        i++;
-        while(str[i] != '\0')
+        int j;
+        j = 0;
+        if(str[j]!= '-' && (str[j] < '0' || str[j] > '9'))
+        return (-1);
+        j++;
+        while(str[j] != '\0')
         {
-            if(str[i] < '0' || str[i] > '9')
+            if(str[j] < '0' || str[j] > '9')
                 return (-1);
-            i++;
+            j++;
         }
-        return (0);
+        i++;
     }
-    return (-1);
+    return (0);
 }
 
 void organize_astack(int argc, char **argv, t_stack *a)
@@ -70,14 +74,13 @@ void organize_astack(int argc, char **argv, t_stack *a)
             return;
         }
         j = 0;
+        if (check_num(split_result) == -1)
+        {
+            free_split(split_result, j);
+            return;
+        }
         while (split_result[j] != NULL)
         {
-            if (check_num(split_result[j]) != 0)
-            {
-                print_error();
-                free_split(split_result, j);
-                return;
-            }
             num = ft_atoi(split_result[j]);
             push_num(a, num);
             j++;

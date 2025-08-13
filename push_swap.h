@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 07:14:19 by yebi              #+#    #+#             */
-/*   Updated: 2025/08/12 19:48:46 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/14 01:44:46 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,8 @@ void rr(t_stack *a, t_stack *b);
 void sa(t_stack *a);
 void sb(t_stack *b);
 void ss(t_stack *a, t_stack *b);
+void sort_two(t_stack *a);
+void sort_three(t_stack *a);
+void sort_five(t_stack *a, t_stack *b);
 
 #endif
