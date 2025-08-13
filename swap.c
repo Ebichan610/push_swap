@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:57:13 by ebichan           #+#    #+#             */
-/*   Updated: 2025/03/02 13:49:02 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/11 19:44:51 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,30 @@
 
 void sa(t_stack *a)
 {
-    if(a -> top == NULL || a -> top -> next == NULL)
+    t_list *first;
+    t_list *second;
+
+    if (a->top == NULL || a->top->next == NULL)
         return;
-    t_list *tmp;
-    tmp = (t_list *)malloc(sizeof(t_list));
-    if(tmp == NULL)
-        return;
-    tmp = a -> top -> next;
-    a -> top -> next -> next = a -> top -> next;
-    a -> top -> next = tmp -> next;
-    a -> top = tmp;
-    free(tmp);
+    first = a->top;
+    second = a->top->next;
+    first->next = second->next;
+    second->next = first;
+    a->top = second;
 }
 
 void sb(t_stack *b)
 {
-    if(b -> top == NULL || b -> top -> next == NULL)
+    t_list *first;
+    t_list *second;
+
+    if (b->top == NULL || b->top->next == NULL)
         return;
-    t_list *tmp;
-    tmp = (t_list *)malloc(sizeof(t_list));
-    if(tmp == NULL)
-        return;
-    tmp = b -> top -> next;
-    b -> top -> next -> next = b -> top -> next;
-    b -> top -> next = tmp -> next;
-    b -> top = tmp;
-    free(tmp);
+    first = b->top;
+    second = b->top->next;
+    first->next = second->next;
+    second->next = first;
+    b->top = second;
 }
 
 void ss(t_stack *a, t_stack *b)

@@ -6,14 +6,14 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 07:14:19 by yebi              #+#    #+#             */
-/*   Updated: 2025/08/11 19:15:07 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/12 19:48:46 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf.h"
+#include "get_next_line.h"
 
 typedef struct s_list
 {
@@ -27,8 +27,22 @@ typedef	struct	s_stack
 	int		size;
 }	t_stack;
 
+void print_error();
 int	ft_atoi(const char *nptr);
 int	ft_putchar(char c);
 int	ft_printf(char const *format);
+void	free_split(char **result, int i_max);
+char	**ft_split(char const *s, char c);
+void pa(t_stack *a, t_stack *b);
+void pb(t_stack *a, t_stack *b);
+void rra(t_stack *a);
+void rrb(t_stack *b);
+void rrr(t_stack *a, t_stack *b);
+void ra(t_stack *a);
+void rb(t_stack *b);
+void rr(t_stack *a, t_stack *b);
+void sa(t_stack *a);
+void sb(t_stack *b);
+void ss(t_stack *a, t_stack *b);
 
 #endif
