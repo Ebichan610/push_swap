@@ -6,18 +6,22 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 07:14:19 by yebi              #+#    #+#             */
-/*   Updated: 2025/08/14 01:44:46 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/14 22:33:41 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "get_next_line.h"
+# include <limits.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
 	int				value;
+	int				index;
 	struct	s_list	*next;
 }	t_list;
 
