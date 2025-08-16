@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 07:14:19 by yebi              #+#    #+#             */
-/*   Updated: 2025/08/17 01:33:05 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 02:10:03 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	ft_atoi(const char *nptr);
 int	ft_putchar(char c);
 void	free_split(char **result);
 char	**ft_split(char const *s, char c);
+
 void pa(t_stack *a, t_stack *b);
 void pb(t_stack *a, t_stack *b);
 void rra(t_stack *a);
@@ -47,11 +48,17 @@ void rr(t_stack *a, t_stack *b);
 void sa(t_stack *a);
 void sb(t_stack *b);
 void ss(t_stack *a, t_stack *b);
+
 void	quick_sort(int *arr, int low, int high);
 int	binary_search(int *arr, int n, int target);
 void assign_index(t_stack *a);
 void organize_astack(int argc, char **argv, t_stack *a);
 void sort_a_few(t_stack *a, t_stack *b);
+
+int	find_index_in_chunk(t_stack *stack, int min, int max);
+int	find_max_index_pos(t_stack *stack);
+void	rotate_to_top_a(t_stack *a, int pos);
+void	rotate_to_top_b(t_stack *b, int pos);
 void chunk_sort(t_stack *a, t_stack *b);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 07:11:03 by yebi              #+#    #+#              #
-#    Updated: 2025/02/23 07:29:27 by ebichan          ###   ########.fr        #
+#    Updated: 2025/08/17 08:18:46 by ebichan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,20 @@ CFLAGS = -Wall -Werror -Wextra
 
 NAME = push_swap
 
-SRCS = 
+SRCS = err_hand.c \
+	ft_atoi.c \
+	ft_split.c \
+	indexing_utils.c \
+	indexing.c \
+	main.c \
+	organize_astack.c \
+	push.c \
+	reverse_rotate.c \
+	rotate.c \
+	sort_a_few.c \
+	sort_chunk_utils.c \
+	sort_chunk.c \
+	swap.c \
 
 OBJS = $(SRCS:%.c=%.o)
 

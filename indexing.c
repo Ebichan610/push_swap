@@ -6,28 +6,11 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 01:19:32 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/17 01:33:03 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 02:01:34 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	check_duplicates(int *vals, int size)
-{
-	int	i;
-
-	i = 1;
-	while (i < size)
-	{
-		if (vals[i] == vals[i - 1])
-		{
-			free(vals);
-			write(2, "Error\n", 6);
-			exit(1);
-		}
-		i++;
-	}
-}
 
 static int	*stack_to_array(t_stack *a)
 {
@@ -58,7 +41,6 @@ void	assign_index(t_stack *a)
 	if (!vals)
 		return ;
 	quick_sort(vals, 0, a->size - 1);
-	check_duplicates(vals, a->size);
 	node = a->top;
 	while (node)
 	{

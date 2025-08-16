@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 18:22:06 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/17 01:33:01 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 01:52:03 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,7 @@ static size_t	count_words(char const *str, char c)
 			in_word = 1;
 		}
 		else if (in_word && *str == c)
-        {
 			in_word = 0;
-            if (*(str + 1) == c)
-                return 0;
-        }
 		str++;
 	}
 	return (word_count);

@@ -6,113 +6,60 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 13:53:31 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/16 01:30:44 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 02:08:37 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int find_index_in_chunk(t_stack *stack, int min, int max)
+static void	push_chunks_to_b(t_stack *a, t_stack *b, int chunk_size)
 {
-    t_list *cur;
-    int pos;
+	int	min_idx;
+	int	max_idx;
+	int	total_size;
+	int	pos;
 
-    cur = stack->top;
-    pos = 0;
-    while (cur)
-    {
-        if (cur->index >= min && cur->index <= max)
-            return pos;
-        cur = cur->next;
-        pos++;
-    }
-    return -1;
+	total_size = a->size;
+	min_idx = 0;
+	max_idx = chunk_size - 1;
+	while (a->size > 0)
+	{
+		pos = find_index_in_chunk(a, min_idx, max_idx);
+		if (pos == -1)
+		{
+			min_idx += chunk_size;
+			max_idx += chunk_size;
+			if (max_idx >= total_size)
+				max_idx = total_size - 1;
+		}
+		else
+		{
+			rotate_to_top_a(a, pos);
+			pb(a, b);
+		}
+	}
 }
 
-static int find_max_index_pos(t_stack *stack)
+static void	push_sorted_to_a(t_stack *a, t_stack *b)
 {
-    t_list *cur;
-    int max;
-    int pos;
-    int i;
+	int	pos;
 
-    cur = stack->top;
-    max = -1;
-    pos = 0;
-    i = 0;
-    while (cur)
-    {
-        if (cur->index > max)
-        {
-            max = cur->index;
-            pos = i;
-        }
-        cur = cur->next;
-        i++;
-    }
-    return pos;
+	while (b->size > 0)
+	{
+		pos = find_max_index_pos(b);
+		rotate_to_top_b(b, pos);
+		pa(a, b);
+	}
 }
 
-static void rotate_to_top_a(t_stack *a, int pos)
+void	chunk_sort(t_stack *a, t_stack *b)
 {
-    if (pos <= a->size / 2)
-        while (pos-- > 0)
-            ra(a);
-    else
-    {
-        pos = a->size - pos;
-        while (pos-- > 0)
-            rra(a);
-    }
-}
+	int	chunk_size;
 
-static void rotate_to_top_b(t_stack *b, int pos)
-{
-    if (pos <= b->size / 2)
-        while (pos-- > 0)
-            rb(b);
-    else
-    {
-        pos = b->size - pos;
-        while (pos-- > 0)
-            rrb(b);
-    }
-}
-
-/* --- チャンクソート本体 --- */
-void chunk_sort(t_stack *a, t_stack *b)
-{
-    int chunk_size;
-    int min;
-    int max;
-    int total;
-    int pos;
-
-    assign_index(a);           // インデックス付与
-    total = a->size;
-    chunk_size = (total <= 100) ? 20 : 45;  // チャンクの大きさ
-    min = 0;
-    max = chunk_size - 1;
-
-    while (a->size > 0)
-    {
-        pos = find_index_in_chunk(a, min, max);
-        if (pos == -1)
-        {
-            min += chunk_size;
-            max += chunk_size;
-            if (max >= total)
-                max = total - 1;
-            continue;
-        }
-        rotate_to_top_a(a, pos);
-        pb(a, b);
-    }
-
-    while (b->size > 0)
-    {
-        pos = find_max_index_pos(b);
-        rotate_to_top_b(b, pos);
-        pa(a, b);
-    }
+	if (a->size <= 100)
+		chunk_size = 20;
+	else
+		chunk_size = 45;
+	push_chunks_to_b(a, b, chunk_size);
+	push_sorted_to_a(a, b);
 }

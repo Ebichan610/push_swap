@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:35:32 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/17 01:33:04 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 01:59:51 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,53 +62,56 @@ static int	check_num(char *str)
 	return (0);
 }
 
-static int has_duplicate(t_stack *a, int num)
+static int	has_duplicate(t_stack *a, int num)
 {
-    t_list *tmp = a->top;
-    while (tmp != NULL)
-    {
-        if (tmp->value == num)
-            return 1;
-        tmp = tmp->next;
-    }
-    return 0;
+	t_list	*tmp;
+
+	tmp = a->top;
+	while (tmp != NULL)
+	{
+		if (tmp->value == num)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
 }
 
-void organize_astack(int argc, char *argv[], t_stack *a)
+static void	process_args(int count, char **args, t_stack *a)
 {
-    int     i;
-    int     num;
-    char  **split_result;
-    
-    i = 1;
-    if(argc == 2)
-    {
-        split_result = ft_split(argv[i], ' ');
-        if (split_result == NULL)
-            print_error();
-        if (check_num(split_result) == -1)
-        {
-            free_split(split_result);
-            print_error();
-        }
-        i = 0;
-        while (split_result[i] != NULL)
-        {
-            num = ft_atoi(split_result[i]);
-            push_num(a, num);
-            i++;
-        }
-        free_split(split_result);
-    }
-    else
-    {
-        while (i < argc)
-        {
-            if(check_num(argv[i]) == -1)
-                print_error();
-            num = ft_atoi(argv[i]);
-            push_num(a, num);
-            i++;
-        }
-    }
+	int	i;
+	int	num;
+
+	i = 0;
+	while (i < count)
+	{
+		if (check_num(args[i]) == -1)
+			print_error();
+		num = ft_atoi(args[i]);
+		if (has_duplicate(a, num))
+			print_error();
+		push_num(a, num);
+		i++;
+	}
+}
+
+void	organize_astack(int argc, char *argv[], t_stack *a)
+{
+	char	**split_result;
+	int		word_count;
+
+	if (argc == 2)
+	{
+		split_result = ft_split(argv[1], ' ');
+		if (split_result == NULL || split_result[0] == NULL)
+			print_error();
+		word_count = 0;
+		while (split_result[word_count])
+			word_count++;
+		process_args(word_count, split_result, a);
+		free_split(split_result);
+	}
+	else
+	{
+		process_args(argc - 1, &argv[1], a);
+	}
 }
