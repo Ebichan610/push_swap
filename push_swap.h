@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 07:14:19 by yebi              #+#    #+#             */
-/*   Updated: 2025/08/14 22:33:41 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 01:33:05 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ typedef	struct	s_stack
 void print_error();
 int	ft_atoi(const char *nptr);
 int	ft_putchar(char c);
-int	ft_printf(char const *format);
-void	free_split(char **result, int i_max);
+void	free_split(char **result);
 char	**ft_split(char const *s, char c);
 void pa(t_stack *a, t_stack *b);
 void pb(t_stack *a, t_stack *b);
@@ -48,8 +47,11 @@ void rr(t_stack *a, t_stack *b);
 void sa(t_stack *a);
 void sb(t_stack *b);
 void ss(t_stack *a, t_stack *b);
-void sort_two(t_stack *a);
-void sort_three(t_stack *a);
-void sort_five(t_stack *a, t_stack *b);
+void	quick_sort(int *arr, int low, int high);
+int	binary_search(int *arr, int n, int target);
+void assign_index(t_stack *a);
+void organize_astack(int argc, char **argv, t_stack *a);
+void sort_a_few(t_stack *a, t_stack *b);
+void chunk_sort(t_stack *a, t_stack *b);
 
 #endif

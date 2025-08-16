@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:35:32 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/13 21:29:53 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 01:33:04 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,57 +35,80 @@ static void push_num(t_stack *stack, int num)
     stack->size++;
 }
 
-static int check_num(char** strs)
+static int	check_num(char *str)
 {
-    int i;
-    i = 0;
-    while(strs[i] != NULL)
-    {
-        int j;
-        j = 0;
-        if(str[j]!= '-' && (str[j] < '0' || str[j] > '9'))
-        return (-1);
-        j++;
-        while(str[j] != '\0')
-        {
-            if(str[j] < '0' || str[j] > '9')
-                return (-1);
-            j++;
-        }
-        i++;
-    }
-    return (0);
+	int		i;
+	int		sign;
+	long	result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+    if (str[i] == '-')
+        sign = -1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (str[i] == '\0')
+		return (-1);
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (-1);
+		result = result * 10 + (str[i++] - '0');
+		if ((sign == 1 && result > INT_MAX)
+			|| (sign == -1 && -result < INT_MIN))
+			return (-1);
+	}
+	return (0);
 }
 
-void organize_astack(int argc, char **argv, t_stack *a)
+static int has_duplicate(t_stack *a, int num)
+{
+    t_list *tmp = a->top;
+    while (tmp != NULL)
+    {
+        if (tmp->value == num)
+            return 1;
+        tmp = tmp->next;
+    }
+    return 0;
+}
+
+void organize_astack(int argc, char *argv[], t_stack *a)
 {
     int     i;
-    int     j;
     int     num;
     char  **split_result;
     
     i = 1;
-    while (i < argc)
+    if(argc == 2)
     {
         split_result = ft_split(argv[i], ' ');
         if (split_result == NULL)
-        {
             print_error();
-            return;
-        }
-        j = 0;
         if (check_num(split_result) == -1)
         {
-            free_split(split_result, j);
-            return;
+            free_split(split_result);
+            print_error();
         }
-        while (split_result[j] != NULL)
+        i = 0;
+        while (split_result[i] != NULL)
         {
-            num = ft_atoi(split_result[j]);
+            num = ft_atoi(split_result[i]);
             push_num(a, num);
-            j++;
+            i++;
         }
-        free_split(split_result, j);
-        i++;
+        free_split(split_result);
+    }
+    else
+    {
+        while (i < argc)
+        {
+            if(check_num(argv[i]) == -1)
+                print_error();
+            num = ft_atoi(argv[i]);
+            push_num(a, num);
+            i++;
+        }
     }
 }

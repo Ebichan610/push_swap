@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:57:21 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/11 19:43:37 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 01:33:35 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void pa(t_stack *a, t_stack *b)
     a->top = tmp;
     a->size++;
     b->size--;
+    write(1, "pa\n", 3);
 }
 
 void pb(t_stack *a, t_stack *b)
@@ -38,4 +39,5 @@ void pb(t_stack *a, t_stack *b)
     b->top = tmp;
     a->size--;
     b->size++;
+    write(1, "pb\n", 3);
 }

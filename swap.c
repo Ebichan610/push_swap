@@ -6,42 +6,41 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:57:13 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/13 22:41:39 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 01:39:37 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sa(t_stack *a)
+static void swap(t_stack *stack)
 {
     t_list *first;
     t_list *second;
 
-    if (a->top == NULL || a->top->next == NULL)
+    if (stack->top == NULL || stack->top->next == NULL)
         return;
-    first = a->top;
-    second = a->top->next;
+    first = stack->top;
+    second = stack->top->next;
     first->next = second->next;
     second->next = first;
-    a->top = second;
+    stack->top = second;
+}
+
+void sa(t_stack *a)
+{
+    swap(a);
+    write(1, "sa\n", 3);
 }
 
 void sb(t_stack *b)
 {
-    t_list *first;
-    t_list *second;
-
-    if (b->top == NULL || b->top->next == NULL)
-        return;
-    first = b->top;
-    second = b->top->next;
-    first->next = second->next;
-    second->next = first;
-    b->top = second;
+    swap(b);
+    write(1, "sb\n", 3);
 }
 
 void ss(t_stack *a, t_stack *b)
 {
-    sa(a);
-    sb(b);
+    swap(a);
+    swap(b);
+    write(1, "ss\n", 3);
 }

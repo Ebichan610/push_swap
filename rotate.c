@@ -6,46 +6,43 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:57:28 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/11 19:45:19 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 01:40:23 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ra(t_stack *a)
+static void rotate(t_stack *stack)
 {
     t_list *first;
     t_list *last;
 
-    if (a->top == NULL || a->top->next == NULL)
+    if (stack->top == NULL || stack->top->next == NULL)
         return;
-    first = a->top;
-    last = a->top;
+    first = stack->top;
+    last = stack->top;
     while (last->next != NULL)
         last = last->next;
-    a->top = first->next;
+    stack->top = first->next;
     first->next = NULL;
     last->next = first;
+}
+
+void ra(t_stack *a)
+{
+    rotate(a);
+    write(1, "ra\n", 3);
 }
 
 void rb(t_stack *b)
 {
-    t_list *first;
-    t_list *last;
-
-    if (b->top == NULL || b->top->next == NULL)
-        return;
-    first = b->top;
-    last = b->top;
-    while (last->next != NULL)
-        last = last->next;
-    b->top = first->next;
-    first->next = NULL;
-    last->next = first;
+   rotate(b);
+   write(1, "rb\n", 3);
 }
 
 void rr(t_stack *a, t_stack *b)
 {
-    ra(a);
-    rb(b);
+    rotate(a);
+    rotate(b);
+    write(1, "rr\n", 3);
 }

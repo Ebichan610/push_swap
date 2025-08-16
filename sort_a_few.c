@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 20:54:16 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/14 01:44:31 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/16 20:38:44 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,7 @@ static void move_min(t_stack *a, int min)
    }
 }
 
-void sort_two(t_stack *a)
-{
-    if(a->top->value > a->top->next->value)
-        sa(&a);
-}
-
-void sort_three(t_stack *a)
+static void sort_three(t_stack *a)
 {
     int x;
     int y;
@@ -87,7 +81,7 @@ void sort_three(t_stack *a)
         rra(a);
 }
 
-void sort_five(t_stack *a, t_stack *b)
+static void sort_six(t_stack *a, t_stack *b)
 {
     int min;
     while (a->size > 3)
@@ -99,4 +93,12 @@ void sort_five(t_stack *a, t_stack *b)
     sort_three(a);
     while (b->size > 0)
         pa(a, b);
+}
+
+void sort_a_few(t_stack *a, t_stack *b)
+{
+    if(a->size == 2&&(a->top->value > a->top->next->value))
+        sa(a);
+    else
+        sort_six(a,b);
 }
