@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 02:07:15 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/17 02:08:02 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 21:27:23 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,33 @@
 int	find_index_in_chunk(t_stack *stack, int min, int max)
 {
 	t_list	*cur;
+	int		cheapest_pos;
+	int		min_cost;
+	int		cost;
 	int		pos;
 
 	cur = stack->top;
 	pos = 0;
+	min_cost = -1;
+	cheapest_pos = -1;
 	while (cur)
 	{
 		if (cur->index >= min && cur->index <= max)
-			return (pos);
+		{
+			if (pos <= stack->size / 2)
+				cost = pos;
+			else
+				cost = stack->size - pos;
+			if (min_cost == -1 || cost < min_cost)
+			{
+				min_cost = cost;
+				cheapest_pos = pos;
+			}
+		}
 		cur = cur->next;
 		pos++;
 	}
-	return (-1);
+	return (cheapest_pos);
 }
 
 int	find_max_index_pos(t_stack *stack)

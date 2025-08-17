@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 13:53:31 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/17 02:08:37 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/17 21:28:48 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	push_chunks_to_b(t_stack *a, t_stack *b, int chunk_size)
 		{
 			rotate_to_top_a(a, pos);
 			pb(a, b);
+			if (b->size > 1 && b->top->index < (min_idx + (chunk_size / 2)))
+				rb(b);
 		}
 	}
 }
@@ -59,7 +61,7 @@ void	chunk_sort(t_stack *a, t_stack *b)
 	if (a->size <= 100)
 		chunk_size = 20;
 	else
-		chunk_size = 45;
+		chunk_size = 40;
 	push_chunks_to_b(a, b, chunk_size);
 	push_sorted_to_a(a, b);
 }
