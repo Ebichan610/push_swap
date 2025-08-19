@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:36:05 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/17 02:00:38 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/18 23:24:02 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ void	free_stack(t_stack *stack)
 
 int	is_sorted(t_stack *stack)
 {
-	t_list	*current;
+	t_list	*tmp;
 
-	if (!stack || !stack->top)
+	if (stack == NULL || stack->top == NULL)
 		return (1);
-	current = stack->top;
-	while (current->next)
+	tmp = stack->top;
+	while (tmp->next)
 	{
-		if (current->value > current->next->value)
+		if (tmp->value > tmp->next->value)
 			return (0);
-		current = current->next;
+		tmp = tmp->next;
 	}
 	return (1);
 }
@@ -60,8 +60,12 @@ int	main(int argc, char *argv[])
 	organize_astack(argc, argv, &a);
 	if (!is_sorted(&a))
 	{
-		assign_index(&a);
-		if (a.size <= 6 && a.size > 1)
+		if(assign_index(&a))
+		{
+			free_stack(&a);
+			print_error();
+		}
+		if (a.size <=6)
 			sort_a_few(&a, &b);
 		else
 			chunk_sort(&a, &b);

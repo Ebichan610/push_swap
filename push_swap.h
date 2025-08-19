@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 07:14:19 by yebi              #+#    #+#             */
-/*   Updated: 2025/08/17 02:10:03 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/18 23:22:59 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void ss(t_stack *a, t_stack *b);
 
 void	quick_sort(int *arr, int low, int high);
 int	binary_search(int *arr, int n, int target);
-void assign_index(t_stack *a);
+int assign_index(t_stack *a);
 void organize_astack(int argc, char **argv, t_stack *a);
 void sort_a_few(t_stack *a, t_stack *b);
 

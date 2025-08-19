@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 01:19:32 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/17 02:01:34 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/18 23:22:47 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ static int	*stack_to_array(t_stack *a)
 	return (vals);
 }
 
-void	assign_index(t_stack *a)
+int	assign_index(t_stack *a)
 {
 	int		*vals;
 	t_list	*node;
 
 	vals = stack_to_array(a);
-	if (!vals)
-		return ;
+	if (vals == NULL)
+		return(1);
 	quick_sort(vals, 0, a->size - 1);
 	node = a->top;
 	while (node)
@@ -48,4 +48,5 @@ void	assign_index(t_stack *a)
 		node = node->next;
 	}
 	free(vals);
+	return(0);
 }
