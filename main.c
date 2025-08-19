@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:36:05 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/18 23:24:02 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/19 16:08:00 by yebi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ int	main(int argc, char *argv[])
 	organize_astack(argc, argv, &a);
 	if (!is_sorted(&a))
 	{
-		if(assign_index(&a))
+		if (assign_index(&a))
 		{
 			free_stack(&a);
 			print_error();
 		}
-		if (a.size <=6)
+		if (a.size <= 6)
 			sort_a_few(&a, &b);
 		else
 			chunk_sort(&a, &b);

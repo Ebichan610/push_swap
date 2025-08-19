@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 01:19:32 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/18 23:22:47 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/19 16:07:58 by yebi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	assign_index(t_stack *a)
 
 	vals = stack_to_array(a);
 	if (vals == NULL)
-		return(1);
+		return (1);
 	quick_sort(vals, 0, a->size - 1);
 	node = a->top;
 	while (node)
@@ -48,5 +48,5 @@ int	assign_index(t_stack *a)
 		node = node->next;
 	}
 	free(vals);
-	return(0);
+	return (0);
 }

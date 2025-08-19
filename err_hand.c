@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   err_hand.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 16:01:21 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/17 01:32:59 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/19 16:07:49 by yebi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_error()
+void	print_error(void)
 {
-    write(2,"Error\n",6);
-    exit(1);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 // void free_stack()
