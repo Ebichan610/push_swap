@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 13:53:31 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/19 16:08:20 by yebi             ###   ########.fr       */
+/*   Updated: 2025/08/19 23:53:07 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	update_chunk_range(int *min, int *max, int chunk, int total)
+{
+	*min += chunk;
+	*max += chunk;
+	if (*max >= total)
+		*max = total - 1;
+}
 
 static void	push_chunks_to_b(t_stack *a, t_stack *b, int chunk_size)
 {
@@ -26,12 +34,7 @@ static void	push_chunks_to_b(t_stack *a, t_stack *b, int chunk_size)
 	{
 		pos = find_index_in_chunk(a, min_idx, max_idx);
 		if (pos == -1)
-		{
-			min_idx += chunk_size;
-			max_idx += chunk_size;
-			if (max_idx >= total_size)
-				max_idx = total_size - 1;
-		}
+			update_chunk_range(&min_idx, &max_idx, chunk_size, total_size);
 		else
 		{
 			rotate_to_top_a(a, pos);

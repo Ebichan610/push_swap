@@ -3,46 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunk_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 02:07:15 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/19 16:08:18 by yebi             ###   ########.fr       */
+/*   Updated: 2025/08/20 00:52:12 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	find_index_in_chunk(t_stack *stack, int min, int max)
-{
-	t_list	*cur;
-	int		cheapest_pos;
-	int		min_cost;
-	int		cost;
-	int		pos;
-
-	cur = stack->top;
-	pos = 0;
-	min_cost = -1;
-	cheapest_pos = -1;
-	while (cur)
-	{
-		if (cur->index >= min && cur->index <= max)
-		{
-			if (pos <= stack->size / 2)
-				cost = pos;
-			else
-				cost = stack->size - pos;
-			if (min_cost == -1 || cost < min_cost)
-			{
-				min_cost = cost;
-				cheapest_pos = pos;
-			}
-		}
-		cur = cur->next;
-		pos++;
-	}
-	return (cheapest_pos);
-}
 
 int	find_max_index_pos(t_stack *stack)
 {
