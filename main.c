@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:36:05 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/19 16:29:24 by yebi             ###   ########.fr       */
+/*   Updated: 2025/08/20 00:56:11 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char *argv[])
 	a.size = 0;
 	b.top = NULL;
 	b.size = 0;
-	organize_astack(argc, argv, &a);
+	organize_stack(argc, argv, &a);
 	if (!is_sorted(&a))
 	{
 		if (assign_index(&a))

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   organize_astack.c                                  :+:      :+:    :+:   */
+/*   organize_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:35:32 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/19 16:18:03 by yebi             ###   ########.fr       */
+/*   Updated: 2025/08/20 00:55:56 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static int	process_args(char **args, t_stack *a)
 	return (0);
 }
 
-void	organize_astack(int argc, char *argv[], t_stack *a)
+void	organize_stack(int argc, char *argv[], t_stack *a)
 {
 	char	**split_result;
 	int		flag;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+         #
+#    By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 07:11:03 by yebi              #+#    #+#              #
-#    Updated: 2025/08/19 16:08:02 by yebi             ###   ########.fr        #
+#    Updated: 2025/08/20 00:55:47 by ebichan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,12 @@ SRCS = err_hand.c \
 	indexing_utils.c \
 	indexing.c \
 	main.c \
-	organize_astack.c \
+	organize_stack.c \
 	push.c \
 	reverse_rotate.c \
 	rotate.c \
 	sort_a_few.c \
+	sort_chunk_cheap.c \
 	sort_chunk_utils.c \
 	sort_chunk.c \
 	swap.c \
