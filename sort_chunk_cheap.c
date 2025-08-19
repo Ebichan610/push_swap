@@ -40,7 +40,7 @@ int	find_index_in_chunk(t_stack *stack, int min, int max)
 	pos = 0;
 	min_cost = -1;
 	cheapest_pos = -1;
-	while (cur)
+	while (cur != NULL)
 	{
 		if (cur->index >= min && cur->index <= max)
 		{

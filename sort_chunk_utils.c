@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 02:07:15 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/20 00:52:12 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/20 02:02:10 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	find_max_index_pos(t_stack *stack)
 	max_index = -1;
 	pos = 0;
 	i = 0;
-	while (cur)
+	while (cur != NULL)
 	{
 		if (cur->index > max_index)
 		{
