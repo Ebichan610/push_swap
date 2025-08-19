@@ -6,7 +6,7 @@
 /*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:36:05 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/19 16:08:00 by yebi             ###   ########.fr       */
+/*   Updated: 2025/08/19 16:29:24 by yebi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	free_stack(t_stack *stack)
 	stack->size = 0;
 }
 
-int	is_sorted(t_stack *stack)
+static int	is_sorted(t_stack *stack)
 {
 	t_list	*tmp;
 

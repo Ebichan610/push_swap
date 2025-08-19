@@ -6,7 +6,7 @@
 /*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 07:14:19 by yebi              #+#    #+#             */
-/*   Updated: 2025/08/19 16:08:06 by yebi             ###   ########.fr       */
+/*   Updated: 2025/08/19 16:29:47 by yebi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int					ft_atoi(const char *nptr);
 int					ft_putchar(char c);
 void				free_split(char **result);
 char				**ft_split(char const *s, char c);
+void				free_stack(t_stack *stack);
 
 void				pa(t_stack *a, t_stack *b);
 void				pb(t_stack *a, t_stack *b);
