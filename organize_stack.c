@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:35:32 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/20 00:55:56 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/21 22:59:31 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	check_num(char *str)
 	return (0);
 }
 
-static int	has_duplicate(t_stack *a, int num)
+static int	check_duplicate(t_stack *a, int num)
 {
 	t_list	*tmp;
 
@@ -88,7 +88,7 @@ static int	process_args(char **args, t_stack *a)
 		if (check_num(args[i]))
 			return (1);
 		num = ft_atoi(args[i]);
-		if (has_duplicate(a, num))
+		if (check_duplicate(a, num))
 			return (1);
 		if (push_num(a, num))
 			return (1);
