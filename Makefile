@@ -6,7 +6,7 @@
 #    By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 07:11:03 by yebi              #+#    #+#              #
-#    Updated: 2025/08/20 00:55:47 by ebichan          ###   ########.fr        #
+#    Updated: 2025/08/22 00:33:20 by ebichan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,11 @@ CFLAGS = -Wall -Werror -Wextra
 
 NAME = push_swap
 
-SRCS = err_hand.c \
+SRCS = assign_index_utils.c \
+	assign_index.c \
+	err_hand.c \
 	ft_atoi.c \
 	ft_split.c \
-	indexing_utils.c \
-	indexing.c \
 	main.c \
 	organize_stack.c \
 	push.c \

@@ -6,7 +6,7 @@
 /*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:36:05 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/20 00:56:11 by ebichan          ###   ########.fr       */
+/*   Updated: 2025/08/21 23:13:27 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	is_sorted(t_stack *stack)
 	if (stack == NULL || stack->top == NULL)
 		return (1);
 	tmp = stack->top;
-	while (tmp->next)
+	while (tmp->next != NULL)
 	{
 		if (tmp->value > tmp->next->value)
 			return (0);
