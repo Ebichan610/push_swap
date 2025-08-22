@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   indexing_utils.c                                   :+:      :+:    :+:   */
+/*   assign_index_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 01:19:08 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/19 16:07:56 by yebi             ###   ########.fr       */
+/*   Updated: 2025/08/22 02:19:31 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ static int	partition(int *arr, int low, int high)
 
 void	quick_sort(int *arr, int low, int high)
 {
-	int	pi;
+	int	piv_idx;
 
 	if (low < high)
 	{
-		pi = partition(arr, low, high);
-		quick_sort(arr, low, pi - 1);
-		quick_sort(arr, pi + 1, high);
+		piv_idx = partition(arr, low, high);
+		quick_sort(arr, low, piv_idx - 1);
+		quick_sort(arr, piv_idx + 1, high);
 	}
 }
 

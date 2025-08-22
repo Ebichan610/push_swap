@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_hand.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yebi <yebi@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: ebichan <ebichan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 16:01:21 by ebichan           #+#    #+#             */
-/*   Updated: 2025/08/19 16:07:49 by yebi             ###   ########.fr       */
+/*   Updated: 2025/08/22 10:40:10 by ebichan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,3 @@ void	print_error(void)
 	write(2, "Error\n", 6);
 	exit(1);
 }
-
-// void free_stack()
-// {
-
-// }
